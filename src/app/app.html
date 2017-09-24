@@ -1,0 +1,33 @@
+<div class="ui container main">
+	<h1>Card Pick-a-matic</h1>
+
+	<div class="ui segment">
+		<div class="ui grid">
+			<div class="two column row" id="heightBox">
+				<div class="middle aligned column">
+					<button (click)="userDrawCard()" class="ui big fluid button">
+						Pick a card!
+					</button>
+				</div>
+				<div class="one wide bottom aligned column">
+					<div class="life-bar" [ngStyle]="lifeBarStyle"></div>
+				</div>
+				<div class="four wide middle aligned column">
+						You last drew: {{lastCardDisp}} <br> There are {{52 - drawnCards.length}} cards left
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngFor="let pickedCard of drawnCards; let i = index" class="ui left floated compact center aligned segment card-in-hand">
+		<button class="ui large button" [ngStyle]='pickedCard.color' (click)="userReturnCard(i)">
+			<h2>{{pickedCard.rank}} <br> of <br> {{pickedCard.suit}}</h2>
+
+
+			<span class="return">
+				RETURN
+				<i class="reply icon"></i>
+			</span>
+		</button>
+	</div>
+</div>
