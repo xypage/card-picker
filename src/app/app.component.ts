@@ -32,13 +32,10 @@ export class AppComponent {
 	}
 
 	public userDrawCard() {
-		if (this.drawnCards.length < 52) {	//Only runs when there aren't alredy 52 cards to avoid pulling undefined
-			this.lastCard = this.deck.drawCard();
-			this.lastCardDisp = `${this.lastCard.rank} of ${this.lastCard.suit}`;
-			this.drawnCards.push(this.lastCard);
-			this.setLife();
-		}
-		
+		this.lastCard = this.deck.drawCard();
+		this.lastCardDisp = `${this.lastCard.rank} of ${this.lastCard.suit}`;
+		this.drawnCards.push(this.lastCard);
+		this.setLife();	
 	}
 	public userReturnCard(index) {
 		this.returned = this.drawnCards[index];
